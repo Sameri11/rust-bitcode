@@ -50,4 +50,4 @@ mkdir -p rust-build
 cd rust-build
 ../rust/configure --llvm-config="$WORKING_DIR/llvm-root/bin/llvm-config" --enable-extended --tools=cargo --release-channel=nightly
 export CFLAGS_aarch64_apple_ios=-fembed-bitcode
-python "$WORKING_DIR/rust/x.py" build -i --target=x86_64-apple-ios,x86_64-apple-ios12-simulator,aarch64-apple-ios,aarch64-apple-ios12,aarch64-apple-ios12-simulator --stage 2
+python "$WORKING_DIR/rust/x.py" build -i --target=x86_64-apple-ios,x86_64-apple-ios12.0-simulator,aarch64-apple-ios,aarch64-apple-ios12.0,aarch64-apple-ios12.0-simulator --stage 2
