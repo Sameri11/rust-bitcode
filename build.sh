@@ -39,7 +39,7 @@ ninja install
 
 cd "$WORKING_DIR"
 if [ ! -d "$WORKING_DIR/rust" ]; then
-    git clone https://github.com/rust-lang/rust.git
+    git clone https://github.com/Sameri11/rust.git
 fi
 cd rust
 git reset --hard
@@ -48,6 +48,6 @@ git checkout "$RUST_BRANCH"
 cd ..
 mkdir -p rust-build
 cd rust-build
-../rust/configure --llvm-config="$WORKING_DIR/llvm-root/bin/llvm-config" --target=aarch64-apple-ios --enable-extended --tools=cargo --release-channel=nightly
+../rust/configure --llvm-config="$WORKING_DIR/llvm-root/bin/llvm-config" --enable-extended --tools=cargo --release-channel=nightly
 export CFLAGS_aarch64_apple_ios=-fembed-bitcode
-python "$WORKING_DIR/rust/x.py" build --stage 2
+python "$WORKING_DIR/rust/x.py" build -i --target=x86_64-apple-ios,x86_64-apple-ios12-simulator,aarch64-apple-ios,aarch64-apple-ios12,aarch64-apple-ios12-simulator --stage 2
